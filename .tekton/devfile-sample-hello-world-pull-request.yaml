@@ -156,7 +156,7 @@ spec:
         - name: name
           value: git-clone-oci-ta
         - name: bundle
-          value: quay.io/rh-ee-fmudry/tekton-catalog/task-git-clone-oci-ta:fix-tags-fetching-v0.3
+          value: quay.io/rh-ee-fmudry/tekton-catalog/task-git-clone-oci-ta:fix-tags-fetching-v0.4
         - name: kind
           value: task
         resolver: bundles
