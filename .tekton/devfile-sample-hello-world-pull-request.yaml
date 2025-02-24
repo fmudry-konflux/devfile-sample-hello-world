@@ -140,9 +140,9 @@ spec:
     - name: clone-repository
       params:
       - name: url
-        value: $(params.git-url)
+        value: https://github.com/rh-api-management/3scale-operator-product-build
       - name: revision
-        value: $(params.revision)
+        value: 191135ab48355921e45cc5c6a2ccade93a8b2443
       - name: ociStorage
         value: $(params.output-image).git
       - name: ociArtifactExpiresAfter
