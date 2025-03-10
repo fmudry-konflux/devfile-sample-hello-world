@@ -270,6 +270,8 @@ spec:
         value: $(tasks.prefetch-dependencies.results.SOURCE_ARTIFACT)
       - name: CACHI2_ARTIFACT
         value: $(tasks.prefetch-dependencies.results.CACHI2_ARTIFACT)
+      - name: IGNORE_MISSING_SIGNATURES
+        value: "false"
       runAfter:
       - build-image-index
       taskRef:
@@ -277,7 +279,7 @@ spec:
         - name: name
           value: source-build-oci-ta
         - name: bundle
-          value: quay.io/rh-ee-fmudry/tekton-catalog/task-build-unsigned-source:0.3-test-echo
+          value: quay.io/rh-ee-fmudry/tekton-catalog/task-build-unsigned-source:0.2-with-ignore-param
         - name: kind
           value: task
         resolver: bundles
