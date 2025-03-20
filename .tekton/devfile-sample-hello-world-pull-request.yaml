@@ -279,7 +279,7 @@ spec:
         - name: name
           value: source-build-oci-ta
         - name: bundle
-          value: quay.io/rh-ee-fmudry/tekton-catalog/task-build-unsigned-source:test-new-args
+          value: quay.io/rh-ee-fmudry/tekton-catalog/task-build-unsigned-source:test-new-args-oci-ta
         - name: kind
           value: task
         resolver: bundles
