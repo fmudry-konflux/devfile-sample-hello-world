@@ -1,0 +1,35 @@
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  name: check-cancel-status
+spec:
+  pipelineSpec:
+    tasks:
+      - name: dummy-task
+        taskSpec:
+          steps:
+            - name: sleep
+              image: alpine
+              script: |
+                echo "Doing something..."
+                sleep 600
+
+    finally:
+      - name: check-cancelled
+        params:
+          - name: pr-name
+            value: "$(context.pipelineRun.name)"
+        taskSpec:
+          params:
+            - name: pr-name
+          steps:
+            - name: check
+              image: bitnami/kubectl:latest
+              script: |
+                STATUS=$(kubectl get pipelinerun $(params.pr-name) -o jsonpath='{.status.conditions[0].reason}')
+                echo "PipelineRun status reason: $STATUS"
+                if [ "$STATUS" = "Cancelled" ]; then
+                  echo "The PipelineRun was CANCELLED."
+                else
+                  echo "The PipelineRun was NOT cancelled."
+                fi
