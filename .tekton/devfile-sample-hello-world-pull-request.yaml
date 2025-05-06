@@ -192,6 +192,34 @@ spec:
         workspace: git-auth
       - name: netrc
         workspace: netrc
+    - name: run-script
+      params:
+        - name: ociStorage
+          value: $(params.output-image).script
+        - name: ociArtifactExpiresAfter
+          value: $(params.image-expires-after)
+        - name: SCRIPT_RUNNER_IMAGE
+          value: quay.io/konflux-ci/operator-sdk-builder:latest
+        - name: HERMETIC
+          value: "true"
+        - name: SOURCE_ARTIFACT
+          value: $(tasks.prefetch-dependencies.results.SOURCE_ARTIFACT)
+        - name: PREFETCH_ARTIFACT
+          value: ""
+        - name: SCRIPT
+          value: |
+            echo "hello world"
+      runAfter:
+      - prefetch-dependencies
+      taskRef:
+        params:
+        - name: name
+          value: run-script-oci-ta
+        - name: bundle
+          value: quay.io/rh-ee-fmudry/tekton-catalog/run-script:separate-hermeto-mount
+        - name: kind
+          value: task
+        resolver: bundles
     - name: build-container
       params:
       - name: IMAGE
@@ -214,11 +242,14 @@ spec:
       - name: BUILD_ARGS_FILE
         value: $(params.build-args-file)
       - name: SOURCE_ARTIFACT
-        value: $(tasks.prefetch-dependencies.results.SOURCE_ARTIFACT)
+        value: $(tasks.run-script.results.SCRIPT_ARTIFACT)
+      - name: ADDITIONAL_BASE_IMAGES
+        value:
+          - $(tasks.run-script.results.SCRIPT_RUNNER_IMAGE_REFERENCE)
       - name: CACHI2_ARTIFACT
         value: $(tasks.prefetch-dependencies.results.CACHI2_ARTIFACT)
       runAfter:
-      - prefetch-dependencies
+      - run-script
       taskRef:
         params:
         - name: name
