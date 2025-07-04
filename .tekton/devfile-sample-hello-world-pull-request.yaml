@@ -581,7 +581,8 @@ spec:
       optional: true
     - name: netrc
       optional: true
-  taskRunTemplate: {}
+  taskRunTemplate:
+    serviceAccountName: build-pipeline-devfile-sample-hello-world
   workspaces:
   - name: git-auth
     secret:
