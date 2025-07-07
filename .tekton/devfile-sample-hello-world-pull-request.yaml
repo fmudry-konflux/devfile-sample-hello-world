@@ -226,7 +226,7 @@ spec:
         - name: name
           value: buildah-oci-ta
         - name: bundle
-          value: quay.io/rh-ee-fmudry/tekton-catalog/task-buildah-oci-ta:v3
+          value: quay.io/rh-ee-fmudry/tekton-catalog/task-buildah-oci-ta:v4
         - name: kind
           value: task
         resolver: bundles
