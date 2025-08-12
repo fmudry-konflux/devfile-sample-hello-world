@@ -192,6 +192,9 @@ spec:
         workspace: git-auth
       - name: netrc
         workspace: netrc
+      - name: activation-key
+        secret:
+          secretName: rhsm-credentials
     - name: build-container
       params:
       - name: IMAGE
