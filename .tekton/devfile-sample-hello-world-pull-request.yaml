@@ -168,6 +168,8 @@ spec:
         workspace: git-auth
     - name: prefetch-dependencies
       params:
+      - name: ACTIVATION_KEY
+        value: rhsm-credentials
       - name: input
         value: '{"type": "gomod"}'
       - name: SOURCE_ARTIFACT
@@ -192,9 +194,6 @@ spec:
         workspace: git-auth
       - name: netrc
         workspace: netrc
-      - name: activation-key
-        secret:
-          secretName: rhsm-credentials
     - name: build-container
       params:
       - name: IMAGE
