@@ -183,7 +183,7 @@ spec:
         - name: name
           value: prefetch-dependencies-oci-ta
         - name: bundle
-          value: quay.io/rh-ee-fmudry/tekton-catalog/apply-new-retry:network-error-v3
+          value: quay.io/rh-ee-fmudry/tekton-catalog/apply-new-retry:final
         - name: kind
           value: task
         resolver: bundles
