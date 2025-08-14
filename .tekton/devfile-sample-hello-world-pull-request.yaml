@@ -168,8 +168,6 @@ spec:
         workspace: git-auth
     - name: prefetch-dependencies
       params:
-      - name: ACTIVATION_KEY
-        value: rhsm-credentials
       - name: input
         value: '{"type": "gomod"}'
       - name: SOURCE_ARTIFACT
@@ -185,7 +183,7 @@ spec:
         - name: name
           value: prefetch-dependencies-oci-ta
         - name: bundle
-          value: quay.io/rh-ee-fmudry/tekton-catalog/prefetch-dependencies:final-version
+          value: quay.io/rh-ee-fmudry/tekton-catalog/apply-new-retry:network-error-v3
         - name: kind
           value: task
         resolver: bundles
