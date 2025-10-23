@@ -241,6 +241,8 @@ spec:
         - "true"
     - name: build-image-index
       params:
+      - name: BUILDAH_FORMAT
+        value: docker
       - name: IMAGE
         value: $(params.output-image)
       - name: COMMIT_SHA
