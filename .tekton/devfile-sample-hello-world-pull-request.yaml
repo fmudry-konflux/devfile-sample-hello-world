@@ -261,7 +261,7 @@ spec:
         - name: name
           value: build-image-index
         - name: bundle
-          value: quay.io/rh-ee-fmudry/tekton-catalog/build-image-index@sha256:985d7b4eefac6af9ba25090e6c6f1ed0a9489cfa339e954a454549950308785d
+          value: quay.io/rh-ee-fmudry/tekton-catalog/build-image-index:initial-fix
         - name: kind
           value: task
         resolver: bundles
