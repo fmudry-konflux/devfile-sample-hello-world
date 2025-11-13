@@ -242,7 +242,7 @@ spec:
     - name: build-image-index
       params:
       - name: BUILDAH_FORMAT
-        value: docker
+        value: $(params.buildah-format)
       - name: IMAGE
         value: $(params.output-image)
       - name: COMMIT_SHA
@@ -261,7 +261,7 @@ spec:
         - name: name
           value: build-image-index
         - name: bundle
-          value: quay.io/rh-ee-fmudry/tekton-catalog/build-image-index:fail-fast-final
+          value: quay.io/rh-ee-fmudry/tekton-catalog/build-image-index:fail-fast-final2
         - name: kind
           value: task
         resolver: bundles
