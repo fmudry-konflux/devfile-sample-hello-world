@@ -261,7 +261,7 @@ spec:
         - name: name
           value: build-image-index
         - name: bundle
-          value: quay.io/rh-ee-fmudry/tekton-catalog/build-image-index:fail-fast-v15
+          value: quay.io/rh-ee-fmudry/tekton-catalog/build-image-index:fail-fast-v16
         - name: kind
           value: task
         resolver: bundles
