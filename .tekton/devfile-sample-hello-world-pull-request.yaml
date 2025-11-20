@@ -261,7 +261,7 @@ spec:
         - name: name
           value: build-image-index
         - name: bundle
-          value: quay.io/rh-ee-fmudry/tekton-catalog/build-image-index:fail-fast-final-without-skopeo-auth-2
+          value: quay.io/rh-ee-fmudry/tekton-catalog/build-image-index:fail-fast-final-without-skopeo-auth-3
         - name: kind
           value: task
         resolver: bundles
