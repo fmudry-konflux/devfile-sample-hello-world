@@ -1,3 +1,3 @@
 # devfile-sample-hello-world
 
-Hello world :))
+Hello world :)
